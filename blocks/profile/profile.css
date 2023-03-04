@@ -1,10 +1,19 @@
 .profile {
-    max-width: 880px;
+    max-width: 282px;
     margin: 0 auto;
-    min-height: 120px;
-    display: grid;
-    grid-template-columns: 120px auto auto;
-    grid-template-rows: 120px;
-    column-gap: 30px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 700px) {
+    .profile {
+        max-width: 880px;
+        margin: 0 auto;
+        min-height: 120px;
+        display: grid;
+        grid-template-columns: 120px 336px auto;
+        grid-template-rows: 120px;
+        column-gap: 30px;
+        align-items: center;
+    }
 }
