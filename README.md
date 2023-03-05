@@ -11,4 +11,4 @@
 
 ### Используемые технологии при создании сайта: HTML, CSS, JavaScript, GIT, БЭМ.
 
-GitHUB Pages: https://gomyranovivan.github.io/mesto/
+[GitHUB Pages](https://gomyranovivan.github.io/mesto/)
