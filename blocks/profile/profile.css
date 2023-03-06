@@ -1,8 +1,10 @@
 .profile {
-    max-width: 282px;
+    /*max-width: 282px;*/
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding-top: 42px;
+    border-top: 2px solid rgba(84, 84, 84, .7);
 }
 
 @media screen and (min-width: 700px) {
@@ -14,5 +16,7 @@
         grid-template-rows: 120px;
         column-gap: 30px;
         align-items: center;
+        padding-top: 40px;
+    
     }
 }

@@ -1,88 +1,87 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-  <meta name="author" content="Иван Гомыранов">
-  <meta name="keywords" content="html, css">
-  <meta name="description" content="проект mesto Ивана Гомыранова на Яндекс.Практикуме">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
-  <title>Место</title>
-  </head>
-  <body class="page">
-    <div class="page">
-       <header class="header">
-          <img src="./images/logo.svg" class="header__logo" alt="Место">
-          <div class="header__line"></div>
-       </header>
-       <main>
-        <section class="profile">
-            <img src="./images/image.jpg" class="profile__avatar" alt="Аватар">
-            <div class="profile__info">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <img src="./images/EditButton.svg" class="profile__button-edit" alt="Кнопка">
-              <p class="profile__description">Исследователь океана</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Иван Гомыранов">
+        <meta name="keywords" content="html, css">
+        <meta name="description" content="проект mesto Ивана Гомыранова на Яндекс.Практикуме">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="pages/index.css">
+        <title>Место</title>
+    </head>
+    <body class="page">
+        <div class="page">
+            <header class="header">
+                <img src="./images/logo.svg" class="header__logo" alt="Место">
+            </header>
+            <main>
+                <section class="profile">
+                    <img src="./images/image.jpg" class="profile__avatar" alt="Аватар">
+                    <div class="profile__info">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__button-edit" type="button"></button>
+                        <p class="profile__description">Исследователь океана</p>
+                    </div>
+                    <button class="profile__button-add" type="button"></button>
+                </section>
+                <section class="cards">
+                    <div class="cards__item">
+                        <img src="./images/ivanovo.jpg" class="cards__image" alt="Иваново">
+                        <div class="cards__inner">
+                            <h2 class="cards__caption">Иваново</h2>
+                            <button class="cards__like" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="cards__item">
+                        <img src="./images/mersin.jpg" class="cards__image" alt="Мерсин">
+                        <div class="cards__inner">
+                            <h2 class="cards__caption">Мерсин</h2>
+                            <button class="cards__like" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="cards__item">
+                        <img src="./images/tula.jpg" class="cards__image" alt="Тула">
+                        <div class="cards__inner">
+                            <h2 class="cards__caption">Тула</h2>
+                            <button class="cards__like" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="cards__item">
+                        <img src="./images/tomsk.jpg" class="cards__image" alt="Томск">
+                        <div class="cards__inner">
+                            <h2 class="cards__caption">Томск</h2>
+                            <button class="cards__like" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="cards__item">
+                        <img src="./images/voronej.jpg" class="cards__image" alt="Воронеж">
+                        <div class="cards__inner">
+                            <h2 class="cards__caption">Воронеж</h2>
+                            <button class="cards__like" type="button"></button>
+                        </div>
+                    </div>
+                    <div class="cards__item">
+                        <img src="./images/sankt-peterburg.jpg" class="cards__image" alt="Санкт-Петербург">
+                        <div class="cards__inner">
+                            <h2 class="cards__caption">Санкт-Петербург</h2>
+                            <button class="cards__like" type="button"></button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <div class="popup">
+                <div class="popup__container">
+                    <button class="popup__close" type="button"></button>
+                    <form class="popup__content" name="myForm">
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <input class="popup__input popup__input_name" type="text" name="userName" placeholder="Имя">
+                        <input class="popup__input popup__input_description" type="text" name="description" placeholder="О себе">
+                        <button class="popup__save" type="button">Сохранить</button>
+                    </form>
+                </div>
             </div>
-            <button class="profile__button-add"><img src="./images/Vector.png" class="profile__vector" alt="Плюс"></button>
-        </section>
-        <section class="cards">
-          <div class="cards__item">
-            <img src="./images/ivanovo.jpg" class="cards__image" alt="Изображение">
-            <div class="cards__inner">
-              <p class="cards__caption">Иваново</p>
-              <div class="cards__like"></div>
-            </div>
-          </div>
-          <div class="cards__item">
-            <img src="./images/mersin.jpg" class="cards__image" alt="Изображение">
-            <div class="cards__inner">
-              <p class="cards__caption">Мерсин</p>
-              <div class="cards__like"></div>
-            </div>
-          </div>
-          <div class="cards__item">
-            <img src="./images/tula.jpg" class="cards__image" alt="Изображение">
-            <div class="cards__inner">
-              <p class="cards__caption">Тула</p>
-              <div class="cards__like"></div>
-            </div>
-          </div>
-          <div class="cards__item">
-            <img src="./images/tomsk.jpg" class="cards__image" alt="Изображение">
-            <div class="cards__inner">
-              <p class="cards__caption">Томск</p>
-              <div class="cards__like"></div>
-            </div>
-          </div>
-          <div class="cards__item">
-            <img src="./images/voronej.jpg" class="cards__image" alt="Изображение">
-            <div class="cards__inner">
-              <p class="cards__caption">Воронеж</p>
-              <div class="cards__like"></div>
-            </div>
-          </div>
-          <div class="cards__item">
-            <img src="./images/sankt-peterburg.jpg" class="cards__image" alt="Изображение">
-            <div class="cards__inner">
-              <p class="cards__caption">Санкт-Петербург</p>
-              <div class="cards__like"></div>
-            </div>
-          </div>
-        </section>
-       </main>
-       <section class="popup">
-        <div class="popup__container">
-          <img src="./images/CloseIcon.png" class="popup__close" alt="Закрыть">
-          <div class="popup__content">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__name" type="text" placeholder="Имя">
-            <input class="popup__description" type="text" placeholder="О себе">
-            <button class="popup__save">Сохранить</button>
-          </div>
+            <footer class="footer"><p class="footer__copyright">© 2020 Mesto Russia</p></footer>
         </div>
-       </section>
-       <footer class="footer">© 2020 Mesto Russia</footer>
-    </div>
-    <script src="./scripts/index.js" defer></script>
-  </body>
+        <script src="./scripts/index.js" defer></script>
+    </body>
 </html>

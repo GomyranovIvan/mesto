@@ -5,7 +5,10 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-
+    background: url(../../../images/CloseIcon320.svg);
+    padding: 0;
+    background-color: transparent;
+    border: none;
 }
 
 .popup__close:hover {
@@ -18,5 +21,6 @@
         top: -40px;
         width: 32px;
         height: 32px;
+        background: url(../../../images/CloseIcon700.svg);
     }
 }
