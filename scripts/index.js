@@ -1,28 +1,21 @@
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupOpenButtonElement = document.querySelector('.profile__button-edit');
-const formElement = document.querySelector('.popup__content');
-const nameInput = formElement.querySelector('.popup__input_name');
-const jobInput = formElement.querySelector('.popup__input_description');
+const formElement = document.querySelector('.edit-profil');
+const nameInput = formElement.querySelector('.edit-profil__submit_input_name');
+const jobInput = formElement.querySelector('.edit-profil__submit_input_description');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
 const openPopup = function () {
     popupElement.classList.add('popup_opened');
-    const AddNamefromProfil = profileName.textContent;
-    const AddDescriptionfromProfil = profileDescription.textContent;
-    nameInput.value = AddNamefromProfil;
-    jobInput.value = AddDescriptionfromProfil;
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileDescription.textContent;
 
 };
 
 const closePopup = function () {
     popupElement.classList.remove('popup_opened');
-};
-
-const saveValuesToProfile = function() {
-    profileName.textContent = nameInput.value;
-    profileDescription.textContent = jobInput.value;
 };
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет

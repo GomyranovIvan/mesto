@@ -7,7 +7,7 @@
     padding: 0;
     background-color: transparent;
     margin: 0 auto;
-    background: url(../../../images/AddButton320.png) center no-repeat;
+    background: url(../../../images/AddButton320.svg) center no-repeat;
 }
 
 .profile__button-add:hover {
@@ -19,6 +19,6 @@
         justify-self: end;
         width: 150px;
         margin: 0;
-        background: url(../../../images/AddButton700.png) center no-repeat;
+        background: url(../../../images/AddButton700.svg) center no-repeat;
     }
 }
