@@ -1,4 +1,4 @@
-.edit-profil__save {
+.popup__save {
     margin: 45px auto 25px auto;
     width: 238px;
     height: 46px;
@@ -13,12 +13,12 @@
     border-radius: 2px;
 }
 
-.edit-profil__save:hover {
+.popup__save:hover {
     opacity: 0.8;
 }
 
 @media screen and (min-width: 700px) {
-    .edit-profil__save {
+    .popup__save {
         font-size: 18px;
         line-height: 22px;
         width: 358px;

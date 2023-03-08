@@ -1,16 +1,16 @@
 const popupElement = document.querySelector('.popup');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupOpenButtonElement = document.querySelector('.profile__button-edit');
-const formElement = document.querySelector('.edit-profil');
-const nameInput = formElement.querySelector('.edit-profil__submit_input_name');
-const jobInput = formElement.querySelector('.edit-profil__submit_input_description');
+const formElement = document.querySelector('.popup__form');
+const nameInput = formElement.querySelector('.popup__input_text_name');
+const descriptionInput = formElement.querySelector('.popup__input_text_description');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
 const openPopup = function () {
     popupElement.classList.add('popup_opened');
     nameInput.value = profileName.textContent;
-    jobInput.value = profileDescription.textContent;
+    descriptionInput.value = profileDescription.textContent;
 
 };
 
@@ -28,7 +28,7 @@ function handleFormSubmit (evt) {
     // Выберите элементы, куда должны быть вставлены значения полей
     // Вставьте новые значения с помощью textContent
     profileName.textContent = nameInput.value;
-    profileDescription.textContent = jobInput.value;
+    profileDescription.textContent = descriptionInput.value;
     closePopup()
 }
 
