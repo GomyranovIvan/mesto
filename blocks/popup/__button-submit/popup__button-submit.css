@@ -1,4 +1,4 @@
-.popup__save {
+.popup__button-submit {
     margin: 45px auto 25px auto;
     width: 238px;
     height: 46px;
@@ -13,12 +13,12 @@
     border-radius: 2px;
 }
 
-.popup__save:hover {
+.popup__button-submit:hover {
     opacity: 0.8;
 }
 
 @media screen and (min-width: 700px) {
-    .popup__save {
+    .popup__button-submit {
         font-size: 18px;
         line-height: 22px;
         width: 358px;

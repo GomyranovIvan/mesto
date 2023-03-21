@@ -25,58 +25,28 @@
                     <button class="profile__button-add" type="button"></button>
                 </section>
                 <section class="cards">
-                    <div class="cards__item">
-                        <img src="./images/ivanovo.jpg" class="cards__image" alt="Иваново">
-                        <div class="cards__inner">
-                            <h2 class="cards__caption">Иваново</h2>
-                            <button class="cards__like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="cards__item">
-                        <img src="./images/mersin.jpg" class="cards__image" alt="Мерсин">
-                        <div class="cards__inner">
-                            <h2 class="cards__caption">Мерсин</h2>
-                            <button class="cards__like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="cards__item">
-                        <img src="./images/tula.jpg" class="cards__image" alt="Тула">
-                        <div class="cards__inner">
-                            <h2 class="cards__caption">Тула</h2>
-                            <button class="cards__like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="cards__item">
-                        <img src="./images/tomsk.jpg" class="cards__image" alt="Томск">
-                        <div class="cards__inner">
-                            <h2 class="cards__caption">Томск</h2>
-                            <button class="cards__like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="cards__item">
-                        <img src="./images/voronej.jpg" class="cards__image" alt="Воронеж">
-                        <div class="cards__inner">
-                            <h2 class="cards__caption">Воронеж</h2>
-                            <button class="cards__like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="cards__item">
-                        <img src="./images/sankt-peterburg.jpg" class="cards__image" alt="Санкт-Петербург">
-                        <div class="cards__inner">
-                            <h2 class="cards__caption">Санкт-Петербург</h2>
-                            <button class="cards__like" type="button"></button>
-                        </div>
-                    </div>
+                
                 </section>
             </main>
-            <div class="popup">
+            <div class="popup popup_content_edit-profile">
                 <div class="popup__container">
-                    <button class="popup__close" type="button"></button>
-                    <form class="popup__form" name="popupFormProfileEdit">
+                    <button class="popup__close" type="button" id="btnEditClose"></button>
+                    <form class="popup__form popup__form_content_edit" name="popupFormProfileEdit">
                         <h2 class="popup__title">Редактировать профиль</h2>
                         <input class="popup__input popup__input_text_name" type="text" name="userName" placeholder="Имя">
                         <input class="popup__input popup__input_text_description" type="text" name="description" placeholder="О себе">
-                        <button class="popup__save" type="submit">Сохранить</button>
+                        <button class="popup__button-submit" type="submit" id="submitActionSave">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+            <div class="popup popup_content_card">
+                <div class="popup__container">
+                    <button class="popup__close" type="button" id="btnCardClose"></button>
+                    <form class="popup__form popup__form_content_add" name="popupFormAddImage">
+                        <h2 class="popup__title">Новое место</h2>
+                        <input class="popup__input popup__input_text_card-name" type="text" name="imageName" placeholder="Название">
+                        <input class="popup__input popup__input_text_card-link" type="text" name="imageLink" placeholder="Ссылка на картинку">
+                        <button class="popup__button-submit popup__button-submit_action_create" type="submit">Создать</button>
                     </form>
                 </div>
             </div>
@@ -84,6 +54,16 @@
                 <p class="footer__copyright">© 2020 Mesto Russia</p>
             </footer>
         </div>
+        <template class="cards-template">
+            <div class="cards__item">
+                <button class="cards__delete" type="button"></button>
+                <img src="" class="cards__image" alt="Фото">
+                <div class="cards__inner">
+                    <h2 class="cards__caption"></h2>
+                    <button class="cards__like" type="button"></button>
+                </div>
+            </div>
+        </template>
         <script src="./scripts/index.js" defer></script>
     </body>
 </html>
