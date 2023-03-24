@@ -7,14 +7,16 @@ const formElementContentAdd = document.querySelector('.popup__form_content_add')
 const formElementContentEdit = document.querySelector('.popup__form_content_edit')
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
+const popupElementPopupImage = document.querySelector('.popup_content_image');
 
 //Закрытие popup
 const popupCloseButtonElementEditProfil = popupElementEditProfile.querySelector('.popup__close');
-const popupCloseButtonElementCard = popupElementAddCard.querySelector('.popup__close')
-
+const popupCloseButtonElementCard = popupElementAddCard.querySelector('.popup__close');
+const popupImageCloseButtonElement = popupElementPopupImage.querySelector('.popup__close');
 //Открытие popup
 const popupEditButtonElement = document.querySelector('.profile__button-edit');
 const popupAddButtonElement = document.querySelector('.profile__button-add');
+// const popupImageCardElement = document.querySelectorAll('.cards__image')
 
 //Инпуты
 const nameInput = formElementContentEdit.querySelector('.popup__input_text_name');
@@ -55,7 +57,7 @@ const initialCards = [
 
 //Добавление template-cards
 initialCards.forEach(function (element){
-  renderItem(element)
+  renderItem(element);
 });
 
 function renderItem(item) {
@@ -78,31 +80,41 @@ function handleFormSubmitCreate (evt) {
   setEventListeners(initialCardsElement);
   cardsList.prepend(initialCardsElement);
   closePopup();
-}
+};
 
 
 //Открытие popupEditProfile
 const openPopupEditProfile = function () {
-    popupElementEditProfile.classList.add('popup_opened');
-    nameInput.value = profileName.textContent;
+  nameInput.value = profileName.textContent;
     descriptionInput.value = profileDescription.textContent;
+    popupElementEditProfile.classList.add('popup_opened');
 };
 
 //Открытие popupAddCard
 const openPopupAddCard = function () {
     popupElementAddCard.classList.add('popup_opened');
+
+};
+
+//Открытие popupImage
+const handleOpenPopupImage = function (evt) {
+    popupElementPopupImage.querySelector('.popup-image__image').src = evt.target.src;
+    popupElementPopupImage.querySelector('.popup-image__caption').textContent = evt.target.alt;
+    popupElementPopupImage.classList.add('popup-image_opened');
+  
 };
 
 //Закрытие popup
 const closePopup = function () {
     popupElementAddCard.classList.remove('popup_opened');
-    popupElementEditProfile.classList.remove('popup_opened');  
+    popupElementEditProfile.classList.remove('popup_opened');
+    popupElementPopupImage.classList.remove('popup-image_opened');
 };
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
 function handleFormSubmitSave (evt) {
     evt.preventDefault(); 
-    console.log(evt)
+    console.log(evt);
     profileName.textContent = nameInput.value;
     profileDescription.textContent = descriptionInput.value;
     closePopup()
@@ -112,25 +124,28 @@ function handleFormSubmitSave (evt) {
 function handleDelete (event) {
   const card = event.target.closest('.cards__item');
   card.remove();
-}
+};
 
 //Лайк карточки
 function handleLike (event) {
   const likeTarget = event.target;
   likeTarget.classList.toggle('cards__like_active');
-}
+};
 
 const setEventListeners = function (initialCardsElement) {
   initialCardsElement.querySelector('.cards__delete').addEventListener('click', handleDelete);
   initialCardsElement.querySelector('.cards__like').addEventListener('click', handleLike);
-}
+  initialCardsElement.querySelector('.cards__image').addEventListener('click', handleOpenPopupImage);
+};
 
 cardsList.querySelectorAll('.cards__delete').forEach((item) => {item.addEventListener('click', handleDelete)});
 cardsList.querySelectorAll('.cards__like').forEach((item) => {item.addEventListener('click', handleLike)});
+cardsList.querySelectorAll('.cards__image').forEach((item) => {item.addEventListener('click', handleOpenPopupImage)});
 
 popupEditButtonElement.addEventListener('click', openPopupEditProfile);
 popupCloseButtonElementCard.addEventListener('click', closePopup);
 popupCloseButtonElementEditProfil.addEventListener('click', closePopup);
+popupImageCloseButtonElement.addEventListener('click', closePopup);
 popupAddButtonElement.addEventListener('click', openPopupAddCard);
 popupElementAddCard.addEventListener('submit', handleFormSubmitCreate)
 popupElementEditProfile.addEventListener('submit', handleFormSubmitSave);
