@@ -16,7 +16,6 @@ const popupImageCloseButtonElement = popupElementPopupImage.querySelector('.popu
 //Открытие popup
 const popupEditButtonElement = document.querySelector('.profile__button-edit');
 const popupAddButtonElement = document.querySelector('.profile__button-add');
-// const popupImageCardElement = document.querySelectorAll('.cards__image')
 
 //Инпуты
 const nameInput = formElementContentEdit.querySelector('.popup__input_text_name');
@@ -98,9 +97,9 @@ const openPopupAddCard = function () {
 
 //Открытие popupImage
 const handleOpenPopupImage = function (evt) {
-    popupElementPopupImage.querySelector('.popup-image__image').src = evt.target.src;
-    popupElementPopupImage.querySelector('.popup-image__caption').textContent = evt.target.alt;
-    popupElementPopupImage.classList.add('popup-image_opened');
+    popupElementPopupImage.querySelector('.popup__image').src = evt.target.src;
+    popupElementPopupImage.querySelector('.popup__caption').textContent = evt.target.alt;
+    popupElementPopupImage.classList.add('popup_opened');
   
 };
 
@@ -108,7 +107,7 @@ const handleOpenPopupImage = function (evt) {
 const closePopup = function () {
     popupElementAddCard.classList.remove('popup_opened');
     popupElementEditProfile.classList.remove('popup_opened');
-    popupElementPopupImage.classList.remove('popup-image_opened');
+    popupElementPopupImage.classList.remove('popup_opened');
 };
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
