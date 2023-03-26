@@ -1,78 +1,85 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="Иван Гомыранов">
-        <meta name="keywords" content="html, css">
-        <meta name="description" content="проект mesto Ивана Гомыранова на Яндекс.Практикуме">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="pages/index.css">
-        <title>Место</title>
-    </head>
-    <body class="page">
-        <div class="page">
-            <header class="header">
-                <img src="./images/logo.svg" class="header__logo" alt="Место">
-            </header>
-            <main>
-                <section class="profile">
-                    <img src="./images/image.jpg" class="profile__avatar" alt="Аватар">
-                    <div class="profile__info">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button class="profile__button-edit" type="button"></button>
-                        <p class="profile__description">Исследователь океана</p>
-                    </div>
-                    <button class="profile__button-add" type="button"></button>
-                </section>
-                <section class="cards">
-                
-                </section>
-            </main>
-            <div class="popup popup_content_edit-profile">
-                <div class="popup__container">
-                    <button class="popup__close popup__close_edit-profile" type="button" id="btnEditClose"></button>
-                    <form class="popup__form popup__form_content_edit" name="popupFormProfileEdit">
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <input class="popup__input popup__input_text_name" type="text" name="userName" placeholder="Имя">
-                        <input class="popup__input popup__input_text_description" type="text" name="description" placeholder="О себе">
-                        <button class="popup__button-submit" type="submit" id="submitActionSave">Сохранить</button>
-                    </form>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Иван Гомыранов">
+    <meta name="keywords" content="html, css">
+    <meta name="description" content="проект mesto Ивана Гомыранова на Яндекс.Практикуме">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pages/index.css">
+    <title>Место</title>
+</head>
+
+<body class="page">
+    <div class="page">
+        <header class="header">
+            <img src="./images/logo.svg" class="header__logo" alt="Место">
+        </header>
+        <main>
+            <section class="profile">
+                <img src="./images/image.jpg" class="profile__avatar" alt="Аватар">
+                <div class="profile__info">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__button-edit" type="button"></button>
+                    <p class="profile__description">Исследователь океана</p>
                 </div>
+                <button class="profile__button-add" type="button"></button>
+            </section>
+            <section class="cards">
+
+            </section>
+        </main>
+        <div class="popup popup_content_edit-profile">
+            <div class="popup__container">
+                <button class="popup__close popup__close_edit-profile" type="button" id="btnEditClose"></button>
+                <form class="popup__form popup__form_content_edit" name="popupFormProfileEdit">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input class="popup__input popup__input_text_name" type="text" name="userName" placeholder="Имя">
+                    <input class="popup__input popup__input_text_description" type="text" name="description"
+                        placeholder="О себе">
+                    <button class="popup__button-submit" type="submit" id="submitActionSave">Сохранить</button>
+                </form>
             </div>
-            <div class="popup popup_content_card">
-                <div class="popup__container">
-                    <button class="popup__close popup__close_add" type="button" id="btnCardClose"></button>
-                    <form class="popup__form popup__form_content_add" name="popupFormAddImage">
-                        <h2 class="popup__title">Новое место</h2>
-                        <input class="popup__input popup__input_text_card-name" type="text" name="imageName" placeholder="Название">
-                        <input class="popup__input popup__input_text_card-link" type="text" name="imageLink" placeholder="Ссылка на картинку">
-                        <button class="popup__button-submit popup__button-submit_action_create" type="submit">Создать</button>
-                    </form>
-                </div>
-            </div>
-            <div class="popup popup_content_image">
-                <figure class="popup__figure">
-                    <button class="popup__close popup__close_image" type="button" id="btnImageClose"></button>
-                    <img src="#" class="popup__image" alt="Фото">
-                    <figcaption class="popup__caption">
-                        Картинка
-                    </figcaption>
-                </figure>
-            </div>
-            <footer class="footer">
-                <p class="footer__copyright">© 2020 Mesto Russia</p>
-            </footer>
         </div>
-        <template class="cards-template">
-            <div class="cards__item">
-                <button class="cards__delete" type="button"></button>
-                <img src="#" class="cards__image" alt="Фото">
-                <div class="cards__inner">
-                    <h2 class="cards__caption"></h2>
-                    <button class="cards__like" type="button"></button>
-                </div>
+        <div class="popup popup_content_card">
+            <div class="popup__container">
+                <button class="popup__close popup__close_add" type="button" id="btnCardClose"></button>
+                <form class="popup__form popup__form_content_add" name="popupFormAddImage">
+                    <h2 class="popup__title">Новое место</h2>
+                    <input class="popup__input popup__input_text_card-name" type="text" name="imageName"
+                        placeholder="Название">
+                    <input class="popup__input popup__input_text_card-link" type="text" name="imageLink"
+                        placeholder="Ссылка на картинку">
+                    <button class="popup__button-submit popup__button-submit_action_create"
+                        type="submit">Создать</button>
+                </form>
             </div>
-        </template>
-        <script src="./scripts/index.js" defer></script>
-    </body>
+        </div>
+        <div class="popup popup_content_image">
+            <figure class="popup__figure">
+                <button class="popup__close popup__close_image" type="button" id="btnImageClose"></button>
+                <img src="#" class="popup__image" alt="Фото">
+                <figcaption class="popup__caption">
+                    Картинка
+                </figcaption>
+            </figure>
+        </div>
+        <footer class="footer">
+            <p class="footer__copyright">© 2020 Mesto Russia</p>
+        </footer>
+    </div>
+    <template class="cards-template">
+        <div class="cards__item">
+            <button class="cards__delete" type="button"></button>
+            <img src="#" class="cards__image" alt="Фото">
+            <div class="cards__inner">
+                <h2 class="cards__caption"></h2>
+                <button class="cards__like" type="button"></button>
+            </div>
+        </div>
+    </template>
+    <script src="./scripts/index.js" defer></script>
+</body>
+
 </html>
