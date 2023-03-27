@@ -29,8 +29,8 @@ const popupCloseButtonElementAddCard = popupElementAddCard.querySelector('.popup
 const popupCloseButtonElementImageFromCard = popupElementImageFromCard.querySelector('.popup__close_image');
 
 //Открытие popup
-const popupEditButtonElementProfile = profileElement.querySelector('.profile__button-edit');
-const popupAddButtonElementCard = profileElement.querySelector('.profile__button-add');
+const popupButtonElementEditProfile = profileElement.querySelector('.profile__button-edit');
+const popupButtonElementAddCard = profileElement.querySelector('.profile__button-add');
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 //Инпуты EditProfile
@@ -99,12 +99,12 @@ function handleOpenImage(object) {
   popupElementImageFromCardOpenedImg.src = object.link;
   popupElementImageFromCardOpenedImg.alt = 'Фотография ' + object.name;
   popupElementImageFromCardOpenedCaption.textContent = object.name;
-  popupOpen(popupElementImageFromCard);
+  openPopup(popupElementImageFromCard);
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //Функция создания карточки
-function handleFormSubmitCreate(evt) {
+function handleProfileFormSubmitCreate(evt) {
   evt.preventDefault();
 
   const item = {
@@ -118,7 +118,7 @@ function handleFormSubmitCreate(evt) {
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //Общие функции открытия закрытия
-function popupOpen(popup) {
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 };
 
@@ -131,12 +131,12 @@ const closePopup = function (popup) {
 const openPopupEditProfile = function () {
   popupEditProfileElementNameInput.value = profileElementName.textContent;
   popupEditProfileElementDescriptionInput.value = profileElementDescription.textContent;
-  popupOpen(popupElementEditProfile);
+  openPopup(popupElementEditProfile);
 };
 
 //Открытие popupAddCard
 const openPopupAddCard = function () {
-  popupOpen(popupElementAddCard);
+  openPopup(popupElementAddCard);
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ const closePopupEditProfile = function () {
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //Отправка формы 
-function handleFormSubmitSave(evt) {
+function handleProfileFormSubmitSave(evt) {
   evt.preventDefault();
   profileElementName.textContent = popupEditProfileElementNameInput.value;
   profileElementDescription.textContent = popupEditProfileElementDescriptionInput.value;
@@ -180,17 +180,17 @@ function setEventListener(like, trash, image, object) {
   trash.addEventListener('click', handleDelete);
   image.addEventListener('click', () => {
     handleOpenImage(object);
-    popupOpen(popupElementImageFromCard);
+    openPopup(popupElementImageFromCard);
   });
 };
 //------------------------------------------------------------------------------------------------------------------------------------------------
-popupEditButtonElementProfile.addEventListener('click', openPopupEditProfile);
-popupAddButtonElementCard.addEventListener('click', openPopupAddCard);
+popupButtonElementEditProfile.addEventListener('click', openPopupEditProfile);
+popupButtonElementAddCard.addEventListener('click', openPopupAddCard);
 //------------------------------------------------------------------------------------------------------------------------------------------------
 popupCloseButtonElementAddCard.addEventListener('click', closePopupAddCard);
 popupCloseButtonElementEditProfile.addEventListener('click', closePopupEditProfile);
 popupCloseButtonElementImageFromCard.addEventListener('click', closePopupImageFromCard);
 //------------------------------------------------------------------------------------------------------------------------------------------------
-popupElementAddCard.addEventListener('submit', handleFormSubmitCreate);
-popupElementEditProfile.addEventListener('submit', handleFormSubmitSave);
+popupElementAddCard.addEventListener('submit', handleProfileFormSubmitCreate);
+popupElementEditProfile.addEventListener('submit', handleProfileFormSubmitSave);
 
