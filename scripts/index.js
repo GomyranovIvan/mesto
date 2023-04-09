@@ -31,9 +31,14 @@ const popupCloseButtonElementImageFromCard = popupElementImageFromCard.querySele
 //Открытие popup
 const popupButtonElementEditProfile = profileElement.querySelector('.profile__button-edit');
 const popupButtonElementAddCard = profileElement.querySelector('.profile__button-add');
+
+//Button submit popup
+const popupButtonSubmitEditProfile = popupFormElementContentEditProfile.querySelector('.popup__button-submit');
+const popupButtonSubmitAddCard = popupFormElementContentAddCard.querySelector('.popup__button-submit');
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-// const popupElementInput = document.querySelector('.popup__input')
+const popupInputElementsEditProfile = popupFormElementContentEditProfile.querySelectorAll('.popup__input');
+const popupInputElementsAddCard = popupFormElementContentAddCard.querySelectorAll('.popup__input');
 
 //Инпуты EditProfile
 const popupEditProfileElementNameInput = popupFormElementContentEditProfile.querySelector('.popup__input_text_name');
@@ -42,42 +47,7 @@ const popupEditProfileElementDescriptionInput = popupFormElementContentEditProfi
 //Инпуты AddCard
 const popupAddCardElementNameInput = popupFormElementContentAddCard.querySelector('.popup__input_text_title');
 const popupAddCardElementLinkInput = popupFormElementContentAddCard.querySelector('.popup__input_text_url');
-//-----------------------------------------------------------------------------------------------------------------------------------
 
-// const validationConfig = {
-//   forms: document.forms,
-//   inputSelector: '.popup__input',
-//   submitButtonSelector: '.popup__button-submit',
-//   errorSelectorTemplate: '.popup_error_type_',
-//   inactiveButtonClass: 'popup__button_disabled',
-//   inputErrorClass: 'popup__input_type_error',
-//   errorClass: 'popup__error_visible'
-// }
-
-// const hangEventListener = function (inputList, buttonSubmit, errorSelectorTemplate, inactiveButtonClass, inputErrorClass, errorClass) {
-//   inputList.forEach((input) => {
-//     input.addEventListener('input', () => {
-//       checkInputValidity(input, errorSelectorTemplate, inputErrorClass, errorClass);
-//       // toggleButton(input, buttonSubmit, inactiveButtonClass)
-//     })
-//   })
-// }
-
-// const enableValidation = function (parameter) {
-//   const formsArr = Array.from(parameter.forms);
-//   formsArr.forEach((form) => {
-//     const inputList = form.querySelectorAll(parameter.inputSelector);
-//     const buttonSubmit = form.querySelector(parameter.submitButtonSelector);
-//     hangEventListener(inputList, buttonSubmit, parameter.errorSelectorTemplate, parameter.inactiveButtonClass, parameter.inputErrorClass, parameter.errorClass);
-//   })
-// }
-// enableValidation(validationConfig)
-
-
-// const checkInputValidity = function (input, errorSelectorTemplate, inputErrorClass, errorClass) {
-//   const errorTextElement = document.querySelector(`${errorSelectorTemplate}${input.name}`);
-//   console.log(errorTextElement);
-// }
 //-----------------------------------------------------------------------------------------------------------------------------------
 //Массив cards
 const initialCards = [
@@ -106,48 +76,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-//-----------------------------------------------------------------------------------------------------------------------------------
-// const formsCollection = document.forms;
 
-// const showInputError = (formsCollection, popupElementInput, errorMessage) => {
-//   const errorElement = formsCollection.querySelector(`.popup__input_text_${popupElementInput.name}-error`);
-//   popupElementInput.classList.add('popup__input_type_error');
-//   errorElement.textContent = errorMessage;
-//   errorElement.classList.add('popup__error_active');
-// };
-
-// const hideInputError = (formsCollection, popupElementInput) => {
-//   const errorElement = formsCollection.querySelector(`.popup__error_type_${popupElementInput.name}`);
-//   popupElementInput.classList.remove('popup__input_type_error');
-//   errorElement.classList.remove('popup__error_active');
-//   errorElement.textContent = '';
-// };
-
-// const isValid = (formsCollection, popupElementInput) => {
-//   if (!popupElementInput.validity.valid) {
-//     showInputError(formsCollection, popupElementInput, popupElementInput.validationMessage)
-//   } else {
-//     hideInputError(formsCollection, popupElementInput)
-//   }
-// };
-
-// const setEventListeners = (formsCollection) => {
-//   const inputList = Array.from(formsCollection.querySelectorAll('.popup__input'));
-//   inputList.forEach((popupElementInput) => {
-//     popupElementInput.addEventListener('input', () => {
-//       isValid(formsCollection, popupElementInput);
-//     });
-//   });
-// };
-
-// const enableValidation = () => {
-//   const formList = Array.from(document.querySelectorAll('.popup__form'));
-
-//   formList.forEach((formsCollection) => {
-//     setEventListeners(formsCollection)
-//   })
-// }
-// enableValidation(); 
 //-----------------------------------------------------------------------------------------------------------------------------------
 function createCard(object) {
   const initialCardsElement = cardsElementsTemplate.querySelector('.cards__item').cloneNode(true);
@@ -208,13 +137,19 @@ const closePopup = function (popup) {
 //---------------------------------------------------------------------------------------------------------------------------------
 //Открытие popupEditProfile
 const openPopupEditProfile = function () {
+  resetErrorForOpenForm(popupElementEditProfile);
   popupEditProfileElementNameInput.value = profileElementName.textContent;
   popupEditProfileElementDescriptionInput.value = profileElementDescription.textContent;
+  toggleButtonState(popupInputElementsEditProfile, popupButtonSubmitEditProfile, validationConfig.disableButtonClass);
   openPopup(popupElementEditProfile);
 };
 
 //Открытие popupAddCard
 const openPopupAddCard = function () {
+  popupAddCardElementNameInput.value = '';
+  popupAddCardElementLinkInput.value = '';
+  resetErrorForOpenForm(popupElementAddCard);
+  toggleButtonState(popupInputElementsAddCard, popupButtonSubmitAddCard, validationConfig.disableButtonClass)
   openPopup(popupElementAddCard);
 };
 
