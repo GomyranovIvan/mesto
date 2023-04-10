@@ -10,10 +10,10 @@ const validationParameters = {
 //------------------------------------------------------------------------------------------------------------------------------------------
 const hangEventListeners = function (inputs, button, errorTemplateSelector, inactiveButtonClass, inputErrorClass) {
     inputs.forEach(function (input) {
-      input.addEventListener('input', function () {
-        checkInputValidity(input, errorTemplateSelector, inputErrorClass);
-        toggleButtonState(inputs, button, inactiveButtonClass);
-      });
+        input.addEventListener('input', function () {
+            checkInputValidity(input, errorTemplateSelector, inputErrorClass);
+            toggleButtonState(inputs, button, inactiveButtonClass);
+        });
     });
 };
 
@@ -39,7 +39,8 @@ const toggleButtonState = function (inputs, button, inactiveButtonClass) {
 
 const hasInValidInput = function (inputs) {
     return Array.from(inputs).some(function (input) {
-        return !input.validity.valid});
+        return !input.validity.valid
+    });
 };
 
 const enableButton = function (button, inactiveButtonClass) {

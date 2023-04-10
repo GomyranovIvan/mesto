@@ -170,11 +170,11 @@ const closePopupEditProfile = function () {
   closePopup(popupElementEditProfile);
 };
 //---------------------------------------------------------------------------------------------------------------------------------
-const closePopupByClickOnOverlay = function (event) { 
-  if (event.currentTarget !== event.target) { 
-      return; 
-  } 
-  closePopup(event.currentTarget) 
+const closePopupByClickOnOverlay = function (event) {
+  if (event.currentTarget !== event.target) {
+    return;
+  }
+  closePopup(event.currentTarget)
 };
 
 const closePopupByKeyEscape = function (event) {
