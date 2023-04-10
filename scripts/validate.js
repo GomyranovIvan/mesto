@@ -1,81 +1,83 @@
-const validationConfig = {
-    allforms: document.forms,
+const validationParameters = {
+    forms: document.forms,
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button-submit',
-    errorSelectorTemplate: '.popup__error_type_',
-    disableButtonClass: 'popup__button-submit_disable',
+    errorTemplateSelector: '.popup__error_type_',
+    inactiveButtonClass: 'popup__button-submit_disable',
     inputErrorClass: 'popup__input_invalid',
-    textErrorClass: 'popup__error_active'
 };
-const log = console.log;
 
-enableValidation(validationConfig)
+//------------------------------------------------------------------------------------------------------------------------------------------
+const hangEventListeners = function (inputs, button, errorTemplateSelector, inactiveButtonClass, inputErrorClass) {
+    inputs.forEach(function (input) {
+      input.addEventListener('input', function () {
+        checkInputValidity(input, errorTemplateSelector, inputErrorClass);
+        toggleButtonState(inputs, button, inactiveButtonClass);
+      });
+    });
+};
 
-function enableValidation(config) {
-    const forms = Array.from(config.allforms)
-    forms.forEach((form) => {
-        const inputList = form.querySelectorAll(config.inputSelector);
-        //можно button перенести в другую функцию
-        const button = form.querySelector(config.submitButtonSelector);
-        hangEventListener(inputList, button, config.errorSelectorTemplate, config.disableButtonClass, config.inputErrorClass, config.textErrorClass);
-    })  
-}
+const enableValidation = function (parameter) {
+    const formsArr = Array.from(parameter.forms)
+    formsArr.forEach(function (form) {
+        const inputs = form.querySelectorAll(parameter.inputSelector);
+        const button = form.querySelector(parameter.submitButtonSelector);
+        hangEventListeners(inputs, button, parameter.errorTemplateSelector, parameter.inactiveButtonClass, parameter.inputErrorClass);
+    });
+};
 
-function hangEventListener(inputList, button, errorSelectorTemplate, disableButtonClass, inputErrorClass, textErrorClass) {
-    inputList.forEach((input) => {
-      input.addEventListener('input', () => {
-        checkInputValidity(input, errorSelectorTemplate, inputErrorClass, textErrorClass);
-        toggleButtonState(inputList, button, disableButtonClass);
-      })
-    })
-}
+enableValidation(validationParameters);
 
-function checkInputValidity(input, errorSelectorTemplate, inputErrorClass, textErrorClass) {
-    const errorTextElement = document.querySelector(`${errorSelectorTemplate}${input.name}`);
-    if (input.validity.valid) {
-        hideInputError(input, errorTextElement, inputErrorClass, textErrorClass)
+//------------------------------------------------------------------------------------------------------------------------------------------
+const toggleButtonState = function (inputs, button, inactiveButtonClass) {
+    if (hasInValidInput(inputs)) {
+        disableButton(button, inactiveButtonClass);
     } else {
-        showInputError(input, errorTextElement, inputErrorClass, textErrorClass)
-    }
-}
+        enableButton(button, inactiveButtonClass);
+    };
+};
 
-function hideInputError(input, errorTextElement, inputErrorClass, textErrorClass) {
-    input.classList.remove(inputErrorClass);
-    errorTextElement.textContent = '';
-    errorTextElement.classList.remove(textErrorClass)
-}
+const hasInValidInput = function (inputs) {
+    return Array.from(inputs).some(function (input) {
+        return !input.validity.valid});
+};
 
-function showInputError(input, errorTextElement, inputErrorClass, textErrorClass) {
-    input.classList.add(inputErrorClass);
-    errorTextElement.textContent = input.validationMessage;
-    errorTextElement.classList.add(textErrorClass)
-}
-
-function toggleButtonState(inputList, button, disableButtonClass) {
-    // if else
-    hasInValidInput(inputList) ? enableButton(button, disableButtonClass) : disableButton(button, disableButtonClass);
-}
-
-function hasInValidInput(inputList) {
-    // some используй
-    return Array.from(inputList).every((input) => input.validity.valid)
-}
-
-function enableButton(button, disableButtonClass) {
-    button.classList.remove(disableButtonClass);
+const enableButton = function (button, inactiveButtonClass) {
+    button.classList.remove(inactiveButtonClass);
     button.disabled = false;
-}
+};
 
-function disableButton(button, disableButtonClass) {
-    button.classList.add(disableButtonClass);
+const disableButton = function (button, inactiveButtonClass) {
+    button.classList.add(inactiveButtonClass);
     button.disabled = true;
-}
+};
 
-function resetErrorForOpenForm(form) {
-    form.querySelectorAll(validationConfig.inputSelector).forEach((input) => {
-        const errorTextElement = document.querySelector(`${validationConfig.errorSelectorTemplate}${input.name}`)
+//------------------------------------------------------------------------------------------------------------------------------------------
+const checkInputValidity = function (input, errorTemplateSelector, inputErrorClass) {
+    const errorElement = document.querySelector(`${errorTemplateSelector}${input.id}`);
+    if (input.validity.valid) {
+        hideInputError(input, errorElement, inputErrorClass)
+    } else {
+        showInputError(input, errorElement, inputErrorClass)
+    };
+};
+
+const hideInputError = function (input, errorElement, inputErrorClass) {
+    input.classList.remove(inputErrorClass);
+    errorElement.textContent = '';
+};
+
+const showInputError = function (input, errorElement, inputErrorClass) {
+    input.classList.add(inputErrorClass);
+    errorElement.textContent = input.validationMessage;
+};
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+const resetErrorForOpenForm = function (element) {
+    element.querySelectorAll(validationParameters.inputSelector).forEach(function (input) {
+        const errorElement = document.querySelector(`${validationParameters.errorTemplateSelector}${input.id}`)
         if (!input.validity.valid) {
-            hideInputError(input, errorTextElement, validationConfig.inputErrorClass, validationConfig.textErrorClass)
-        }
-    })
-}
+            hideInputError(input, errorElement, validationParameters.inputErrorClass)
+        };
+    });
+};
