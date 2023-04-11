@@ -8,7 +8,6 @@ const popupElementImageFromCardOpenedImg = document.querySelector('.popup__image
 const popupElementImageFromCardOpenedCaption = document.querySelector('.popup__caption');
 
 //Формы
-const popupFormElement = document.querySelector('.popup__form');
 const popupFormElementContentAddCard = popupElementAddCard.querySelector('.popup__form_content_add');
 const popupFormElementContentEditProfile = popupElementEditProfile.querySelector('.popup__form_content_edit');
 
@@ -88,7 +87,7 @@ function createCard(object) {
   initialCardsElementImage.alt = 'Фотография ' + object.name;
   initialCardsElement.querySelector('.cards__caption').textContent = object.name;
 
-  setEventListeners(initialCardsElementLike, initialCardsElementDelete, initialCardsElementImage, object);
+  setCardListeners(initialCardsElementLike, initialCardsElementDelete, initialCardsElementImage, object);
 
   return initialCardsElement;
 };
@@ -122,7 +121,6 @@ function handleProfileFormSubmitCreate(evt) {
   };
   renderCard(item);
   closePopup(popupElementAddCard);
-  evt.target.reset();
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -140,7 +138,7 @@ const closePopup = function (popup) {
 //---------------------------------------------------------------------------------------------------------------------------------
 //Открытие popupEditProfile
 const openPopupEditProfile = function () {
-  resetErrorForOpenForm(popupElementEditProfile);
+  resetErrorForOpenForm(popupElementEditProfile, validationParameters);
   popupEditProfileElementNameInput.value = profileElementName.textContent;
   popupEditProfileElementDescriptionInput.value = profileElementDescription.textContent;
   toggleButtonState(popupInputElementsEditProfile, popupButtonSubmitEditProfile, validationParameters.inactiveButtonClass);
@@ -149,9 +147,8 @@ const openPopupEditProfile = function () {
 
 //Открытие popupAddCard
 const openPopupAddCard = function () {
-  popupAddCardElementNameInput.value = '';
-  popupAddCardElementLinkInput.value = '';
-  resetErrorForOpenForm(popupElementAddCard);
+  popupFormElementContentAddCard.reset()
+  resetErrorForOpenForm(popupElementAddCard, validationParameters);
   toggleButtonState(popupInputElementsAddCard, popupButtonSubmitAddCard, validationParameters.inactiveButtonClass)
   openPopup(popupElementAddCard);
 };
@@ -206,7 +203,7 @@ function handleLike(event) {
 };
 //-----------------------------------------------------------------------------------------------------------------------------------------------
 //Слушатели для карточек
-function setEventListeners(like, trash, image, object) {
+function setCardListeners(like, trash, image, object) {
   like.addEventListener('click', handleLike);
   trash.addEventListener('click', handleDelete);
   image.addEventListener('click', () => {

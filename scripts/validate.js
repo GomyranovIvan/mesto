@@ -17,12 +17,12 @@ const hangEventListeners = function (inputs, button, errorTemplateSelector, inac
     });
 };
 
-const enableValidation = function (parameter) {
-    const formsArr = Array.from(parameter.forms)
+const enableValidation = function (parameters) {
+    const formsArr = Array.from(parameters.forms)
     formsArr.forEach(function (form) {
-        const inputs = form.querySelectorAll(parameter.inputSelector);
-        const button = form.querySelector(parameter.submitButtonSelector);
-        hangEventListeners(inputs, button, parameter.errorTemplateSelector, parameter.inactiveButtonClass, parameter.inputErrorClass);
+        const inputs = form.querySelectorAll(parameters.inputSelector);
+        const button = form.querySelector(parameters.submitButtonSelector);
+        hangEventListeners(inputs, button, parameters.errorTemplateSelector, parameters.inactiveButtonClass, parameters.inputErrorClass);
     });
 };
 
@@ -74,7 +74,7 @@ const showInputError = function (input, errorElement, inputErrorClass) {
 };
 
 //------------------------------------------------------------------------------------------------------------------------------------------
-const resetErrorForOpenForm = function (element) {
+const resetErrorForOpenForm = function (element, validationParameters) {
     element.querySelectorAll(validationParameters.inputSelector).forEach(function (input) {
         const errorElement = document.querySelector(`${validationParameters.errorTemplateSelector}${input.id}`)
         if (!input.validity.valid) {
