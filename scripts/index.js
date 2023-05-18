@@ -1,21 +1,20 @@
 import Card from './card.js';
 import FormValidator from './formValidator.js';
-//Поиск ---------------------------------------------------------------------------------------------------------------------------
-
+//---------------------------------------------------------------------------------------------------------------------------
 //Попапы
+
 const popupElementEditProfile = document.querySelector('.popup_content_edit-profile');
 const popupElementAddCard = document.querySelector('.popup_content_card');
 const popupElementImageFromCard = document.querySelector('.popup_content_image');
 const popupElementImageFromCardOpenedImg = document.querySelector('.popup__image');
 const popupElementImageFromCardOpenedCaption = document.querySelector('.popup__caption');
+//Формы---------------------------------------------------------------------------------------------------------------------------
 
-//Формы
-// const personalData = document.querySelector('.popup__form')
 const formProfileEditElement = document.forms.popupFormProfileEdit
 const formAddCardElement = document.forms.popupFormAddImage;
 const popupFormElementContentAddCard = popupElementAddCard.querySelector('.popup__form_content_add');
 const popupFormElementContentEditProfile = popupElementEditProfile.querySelector('.popup__form_content_edit');
-
+//---------------------------------------------------------------------------------------------------------------------------
 //Профиль
 const profileElement = document.querySelector('.profile');
 const profileElementName = profileElement.querySelector('.profile__name');
@@ -24,7 +23,6 @@ const profileElementDescription = profileElement.querySelector('.profile__descri
 //Cards
 const selectorTemplate = '#cards-template'
 const cardsElementsPlace = document.querySelector('.cards');
-
 //Кнопки----------------------------------------------------------------------------------------------------------------------------
 
 //Закрытие popup
@@ -35,15 +33,6 @@ const popupCloseButtonElementImageFromCard = popupElementImageFromCard.querySele
 //Открытие popup
 const popupButtonElementEditProfile = profileElement.querySelector('.profile__button-edit');
 const popupButtonElementAddCard = profileElement.querySelector('.profile__button-add');
-
-//Button submit popup
-const popupButtonSubmitEditProfile = popupFormElementContentEditProfile.querySelector('.popup__button-submit');
-const popupButtonSubmitAddCard = popupFormElementContentAddCard.querySelector('.popup__button-submit');
-
-//-----------------------------------------------------------------------------------------------------------------------------------
-//Инпуты
-const popupInputElementsEditProfile = popupFormElementContentEditProfile.querySelectorAll('.popup__input');
-const popupInputElementsAddCard = popupFormElementContentAddCard.querySelectorAll('.popup__input');
 
 //Инпуты EditProfile
 const popupEditProfileElementNameInput = popupFormElementContentEditProfile.querySelector('.popup__input_text_name');
