@@ -116,9 +116,10 @@ const closePopupByClickOnOverlay = function (event) {
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
-//ФУНКЦИЯ ресета ошибок валидации\
-//отображения текущих значений профиля в инпутах формы\
+//ФУНКЦИЯ\
 //открытие ПОПАПА РЕДАКТИРОВАНИЯ ПРОФИЛЯ\
+//отображения текущих значений профиля в инпутах формы\
+//ресета ошибок валидации\
 const openPopupEditProfile = function () {
   formProfileEditValidator.resetErrorForOpenForm();
   popupEditProfileElementNameInput.value = profileElementName.textContent;
@@ -132,9 +133,10 @@ const closePopupEditProfile = function () {
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
-//ФУНКЦИЯ ресета ошибок валидации\ 
-//ресета инпутов при повторном открытии попапа\
+//ФУНКЦИЯ\
 //oткрытие ПОПАПА ДОБАВЛЕНИЯ КАРТОЧЕК\
+//ресета инпутов при повторном открытии попапа\
+//ресета ошибок валидации\
 const openPopupAddCard = function () {
   formAddCardElement.reset()
   formAddCardValidator.resetErrorForOpenForm();
