@@ -17,6 +17,7 @@
             <img src="./images/logo.svg" class="header__logo" alt="Место">
         </header>
         <main>
+            <!-- Секция с отображением профиля -->
             <section class="profile">
                 <img src="./images/image.jpg" class="profile__avatar" alt="Аватар">
                 <div class="profile__info">
@@ -26,39 +27,68 @@
                 </div>
                 <button class="profile__button-add" type="button"></button>
             </section>
+            <!-- Место где отображаются карточки -->
             <section class="cards">
             </section>
         </main>
+        <!-- Попап с формой редактирования профиля -->
         <div class="popup popup_content_edit-profile">
             <div class="popup__container">
                 <button class="popup__close popup__close_edit-profile" type="button" id="btnEditClose"></button>
                 <form class="popup__form popup__form_content_edit" name="popupFormProfileEdit" novalidate>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__input popup__input_text_name" type="text" id="name" placeholder="Имя"
-                        minlength="2" maxlength="40" required>
+                    <!-- Инпут имя профиля -->
+                    <input
+                    class="popup__input popup__input_text_name" 
+                    type="text"
+                    id="name"
+                    placeholder="Имя"
+                    minlength="2" 
+                    maxlength="40" 
+                    required>
                     <span class="popup__error popup__error_type_name"></span>
-                    <input class="popup__input popup__input_text_description" type="text" id="description"
-                        placeholder="О себе" minlength="2" maxlength="200" required>
+                    <!-- инпут описания профиля -->
+                    <input
+                    class="popup__input popup__input_text_description"
+                    type="text" 
+                    id="description"   
+                    placeholder="О себе" 
+                    minlength="2" 
+                    maxlength="200" 
+                    required>
                     <span class="popup__error popup__error_type_description"></span>
                     <button class="popup__button-submit" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
+        <!-- Попап с формой добавления карточки -->
         <div class="popup popup_content_card">
             <div class="popup__container">
                 <button class="popup__close popup__close_add" type="button" id="btnCardClose"></button>
                 <form class="popup__form popup__form_content_add" name="popupFormAddImage" novalidate>
                     <h2 class="popup__title">Новое место</h2>
-                    <input class="popup__input popup__input_text_caption" type="text" id="caption"
-                        placeholder="Название" minlength="2" maxlength="30" required>
+                    <!-- Инпут подписи картинки -->
+                    <input 
+                    class="popup__input popup__input_text_caption" 
+                    type="text" id="caption"
+                    placeholder="Название" 
+                    minlength="2" 
+                    maxlength="30" 
+                    required>
                     <span class="popup__error popup__error_type_caption"></span>
-                    <input class="popup__input popup__input_text_link" type="url" id="link"
-                        placeholder="Ссылка на картинку" required>
+                    <!-- инпут ссылки на картинку -->
+                    <input 
+                    class="popup__input popup__input_text_link" 
+                    type="url" 
+                    id="link"
+                    placeholder="Ссылка на картинку" 
+                    required>
                     <span class="popup__error popup__error_type_link"></span>
                     <button class="popup__button-submit" type="submit">Создать</button>
                 </form>
             </div>
         </div>
+        <!-- Попап с открытием картинки -->
         <div class="popup popup_content_image">
             <figure class="popup__figure">
                 <button class="popup__close popup__close_image" type="button" id="btnImageClose"></button>
@@ -72,6 +102,7 @@
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
     </div>
+    <!-- Контейнер, куда кладутся карточки для секции '.cards' -->
     <template id="cards-template">
         <div class="cards__item">
             <button class="cards__delete" type="button"></button>
