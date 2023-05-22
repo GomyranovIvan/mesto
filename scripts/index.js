@@ -108,12 +108,18 @@ const closePopupByKeyEscape = function (event) {
 //---------------------------------------------------------------------------------------------------------------------------------
 //Функция закрытия любого попапа НАЖАТИЕМ МЫШКОЙ НА ФОН\
 //если событие клика не равно другому событию то попап закрывается\
+// const closePopupByClickOnOverlay = function (event) {
+//   if (event.currentTarget !== event.target) {
+//     return;
+//   }
+//   closePopup(event.currentTarget)
+// };
 const closePopupByClickOnOverlay = function (event) {
-  if (event.currentTarget !== event.target) {
-    return;
+  if (event.currentTarget == event.target) {
+    closePopup(event.currentTarget);
   }
-  closePopup(event.currentTarget)
 };
+
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //ФУНКЦИЯ\
@@ -224,14 +230,14 @@ formAddCardValidator.enableValidation()
 //СЛУШАТЕЛИ для ПОПАПА РЕДАКТИРОВАНИЯ ПРОФИЛЯ
 popupButtonElementEditProfile.addEventListener('click', openPopupEditProfile);
 popupCloseButtonElementEditProfile.addEventListener('click', closePopupEditProfile);
-popupElementEditProfile.addEventListener('click', closePopupByClickOnOverlay);
+popupElementEditProfile.addEventListener('mousedown', closePopupByClickOnOverlay);
 popupElementEditProfile.addEventListener('submit', handleProfileFormSubmitSave);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
 //СЛУШАТЕЛИ для ПОПАПА ДОБАВЛЕНИЯ КАРТОЧКИ
 popupButtonElementAddCard.addEventListener('click', openPopupAddCard);
 popupCloseButtonElementAddCard.addEventListener('click', closePopupAddCard);
-popupElementAddCard.addEventListener('click', closePopupByClickOnOverlay);
+popupElementAddCard.addEventListener('mousedown', closePopupByClickOnOverlay);
 popupElementAddCard.addEventListener('submit', handleProfileFormSubmitCreate);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
