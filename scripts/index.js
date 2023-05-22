@@ -108,12 +108,6 @@ const closePopupByKeyEscape = function (event) {
 //---------------------------------------------------------------------------------------------------------------------------------
 //Функция закрытия любого попапа НАЖАТИЕМ МЫШКОЙ НА ФОН\
 //если событие клика не равно другому событию то попап закрывается\
-// const closePopupByClickOnOverlay = function (event) {
-//   if (event.currentTarget !== event.target) {
-//     return;
-//   }
-//   closePopup(event.currentTarget)
-// };
 const closePopupByClickOnOverlay = function (event) {
   if (event.currentTarget == event.target) {
     closePopup(event.currentTarget);
