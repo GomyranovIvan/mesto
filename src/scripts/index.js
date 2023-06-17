@@ -1,5 +1,11 @@
-import Card from './card.js';
-import FormValidator from './formValidator.js';
+import Card from './components/Card.js';
+import FormValidator from './components/FormValidator.js';
+import '../pages/index.css';
+import PopupWithImage from './components/PopupWithImage.js';
+
+//---------------------------------------------------------------------------------------------------------------------------
+//Общий селектор попапа
+const popupElement = document.querySelector('.popup')
 //---------------------------------------------------------------------------------------------------------------------------
 //Элементы профиля\
 
@@ -42,7 +48,8 @@ const popupCloseButtonElementImageFromCard = popupElementImageFromCard.querySele
 //Cards\
 const selectorTemplate = '#cards-template'
 const cardsElementsPlace = document.querySelector('.cards');
-
+const popupProfileSelector = '.popup_content_edit-profile';
+const popupImageSelector = '.popup_content_image'
 //-----------------------------------------------------------------------------------------------------------------------------------
 //Массив по умолчанию\
 
@@ -84,35 +91,39 @@ const validationParameters = {
   inputErrorClass: 'popup__input_invalid',
 };
 
+
+
+const popupImage = new PopupWithImage(popupImageSelector);
+popupImage.setEventListener()
 //---------------------------------------------------------------------------------------------------------------------------------
 //Общие ФУНКЦИИ открытия закрытия\
-const openPopup = function (popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupByKeyEscape);
-};
+// const openPopup = function (popup) {
+//   popup.classList.add('popup_opened');
+//   document.addEventListener('keydown', closePopupByKeyEscape);
+// };
 
-const closePopup = function (popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupByKeyEscape);
-};
+// const closePopup = function (popup) {
+//   popup.classList.remove('popup_opened');
+//   document.removeEventListener('keydown', closePopupByKeyEscape);
+// };
 
-//---------------------------------------------------------------------------------------------------------------------------------
-//ФУНКЦИЯ закрытия любого попапа на КЛАВИШУ ESC путём поиска в документе дом элемента '.popup_opened' и удаления его с помощью общей функции закрытия попапа\
-const closePopupByKeyEscape = function (event) {
-  if (event.key === 'Escape') {
-    const popupElementOpened = document.querySelector('.popup_opened');
-    closePopup(popupElementOpened);
-  }
-}
+// //---------------------------------------------------------------------------------------------------------------------------------
+// //ФУНКЦИЯ закрытия любого попапа на КЛАВИШУ ESC путём поиска в документе дом элемента '.popup_opened' и удаления его с помощью общей функции закрытия попапа\
+// const closePopupByKeyEscape = function (event) {
+//   if (event.key === 'Escape') {
+//     const popupElementOpened = document.querySelector('.popup_opened');
+//     closePopup(popupElementOpened);
+//   }
+// }
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //Функция закрытия любого попапа НАЖАТИЕМ МЫШКОЙ НА ФОН\
 //если событие клика не равно другому событию то попап закрывается\
-const closePopupByClickOnOverlay = function (event) {
-  if (event.currentTarget == event.target) {
-    closePopup(event.currentTarget);
-  }
-};
+// const closePopupByClickOnOverlay = function (event) {
+//   if (event.currentTarget == event.target) {
+//     closePopup(event.currentTarget);
+//   }
+// };
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -124,13 +135,14 @@ const openPopupEditProfile = function () {
   formProfileEditValidator.resetErrorForOpenForm();
   popupEditProfileElementNameInput.value = profileElementName.textContent;
   popupEditProfileElementDescriptionInput.value = profileElementDescription.textContent;
-  openPopup(popupElementEditProfile);
+  // openPopup(popupElementEditProfile);
+  profilePopup.open();
 };
 
 //Закрытие PopupEditProfile\
-const closePopupEditProfile = function () {
-  closePopup(popupElementEditProfile);
-};
+// const closePopupEditProfile = function () {
+//   closePopup(popupElementEditProfile);
+// };
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //ФУНКЦИЯ\
@@ -151,12 +163,12 @@ const closePopupAddCard = function () {
 //---------------------------------------------------------------------------------------------------------------------------------
 //ФУКЦИЯ присваивания ссылки и названия объекта открытому попапу\
 //открытие ПОПАПА С ОТКРЫТИЕМ КАРТИНКИ\
-const handleOpenImageFromCard = function (object) {
-  popupElementImageFromCardOpenedImg.src = object.link;
-  popupElementImageFromCardOpenedImg.alt = 'Фотография ' + object.name;
-  popupElementImageFromCardOpenedCaption.textContent = object.name;
-  openPopup(popupElementImageFromCard);
-};
+// const handleOpenImageFromCard = function (object) {
+//   popupElementImageFromCardOpenedImg.src = object.link;
+//   popupElementImageFromCardOpenedImg.alt = 'Фотография ' + object.name;
+//   popupElementImageFromCardOpenedCaption.textContent = object.name;
+//   openPopup(popupElementImageFromCard);
+// };
 
 //Закрытие PopupImageFromCard
 const closePopupImageFromCard = function () {
@@ -193,7 +205,7 @@ const handleProfileFormSubmitCreate = function (evt) {
 //ФУНКЦИЯ где мы создаем карточку с помощью экземпляра класса Card\
 const createNewCard = function (item) {
   //класс принял параметры (объект из массива, контейнер куда кладутся объекты(карточки), функцию для открытия попапа картинки)\
-  const card = new Card(item, selectorTemplate, handleOpenImageFromCard);
+  const card = new Card(item, selectorTemplate, popupImage.open);
   const cardElement = card.createCard()
   return cardElement
 };

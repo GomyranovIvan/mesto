@@ -25,14 +25,14 @@ export default class Card {
 
     //МЕТОД для открытия попапа картинки
     _handleOpenImageFromCardElement = () => {
-        this._handleOpenImageFromCard(this._object)
+        this._handleOpenImageFromCard(this._object);
     }
 
     //МЕТОД для навешивания слушателей
     _setEventListener() {
         this._likeElement.addEventListener('click', this._handleLike);
         this._deleteElement.addEventListener('click', this._handleDelete);
-        this._imageElement.addEventListener('click', this._handleOpenImageFromCardElement)
+        this._imageElement.addEventListener('click', this._handleOpenImageFromCardElement);
     }
 
     createCard() {
@@ -52,6 +52,7 @@ export default class Card {
         this._captionElement.textContent = this._object.name;
         //Навешиваем слушательи методом
         this._setEventListener()
+        //Возвращаем наружу ЭЛЕМЕНТ клонирующий контент из контейнера
         return this._templateCloneElement
     }
 }
