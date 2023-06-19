@@ -48,8 +48,8 @@ export default class Card {
         this._captionElement = this._templateCloneElement.querySelector('.cards__caption');
         //ЭЛЕМЕНТЫ где мы присваиваем значение из массива карточке 
         this._imageElement.src = this._object.link;
-        this._imageElement.alt = this._object.name;
-        this._captionElement.textContent = this._object.name;
+        this._imageElement.alt = this._object.caption;
+        this._captionElement.textContent = this._object.caption;
         //Навешиваем слушательи методом
         this._setEventListener()
         //Возвращаем наружу ЭЛЕМЕНТ клонирующий контент из контейнера

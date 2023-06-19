@@ -11,7 +11,8 @@
 * Функция удаления карточки.
 * Валидация полей формы.
 * Структура файлов организована по БЭМу.
+* Организован WebPack npm
 
-### Используемые технологии при создании сайта: HTML, CSS, JavaScript, GIT, БЭМ.
+### Используемые технологии при создании сайта: HTML, CSS, JavaScript, GIT, Node.js, БЭМ.
 
 [GitHUB Pages](https://gomyranovivan.github.io/mesto/)
