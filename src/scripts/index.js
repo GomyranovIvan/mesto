@@ -109,7 +109,7 @@ popupWithImage.setEventListener()
 //---------------------------------------------------------------------------------------------------------------------------------
 //ЭКЗЕМПЛЯР КЛАССА который отвечает за отрисовку элементов на странице\
 //Методом берём данные карточек из массива\
-const section = new Section({
+const cardContainer = new Section({
   items: initialCards,
   renderer: (item) => {
     const card = new Card(item, selectorTemplate, popupWithImage.open);
@@ -118,7 +118,7 @@ const section = new Section({
   }
 }, cardElementSelector)
 
-section.addCardFromArray()
+cardContainer.addCardFromArray()
 
 //---------------------------------------------------------------------------------------------------------------------------------
 //ЭКЗЕМПЛЯР КЛАССА для редактирования профиля\
@@ -136,7 +136,7 @@ popupProfile.setEventListener();
 //навешали слушатели\
 const popupAddCard = new PopupWithForm(popupAddCardSelector, (evt) => {
   evt.preventDefault();
-  section.addItem(section.renderer(popupAddCard.getInputsValue()));
+  cardContainer.addItem(cardContainer.renderer(popupAddCard.getInputsValue()));
   popupAddCard.close();
 });
 
