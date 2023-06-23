@@ -24,6 +24,7 @@ export default class Card {
         this._templateCloneElement = null;
     }
 
+    
     //МЕТОД для открытия попапа картинки
     _handleOpenImageFromCardElement = () => {
         this._handleOpenImageFromCard(this._object);
