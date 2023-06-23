@@ -21,7 +21,7 @@ export default class Card {
     //МЕТОД для удаления селектора '.cards__item' (МУСОРКА)
     _handleDelete = () => {
         this._templateCloneElement.remove();
-        this._templateCloneElement = {};
+        this._templateCloneElement = null;
     }
 
     //МЕТОД для открытия попапа картинки
