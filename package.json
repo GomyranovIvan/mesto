@@ -1,7 +1,7 @@
 {
   "name": "yandex.gomyranov",
   "version": "0.0.1",
-  "homepage":"https://gomyranovivan.github.io/mesto/",
+  "homepage": "https://gomyranovivan.github.io/mesto/",
   "description": "Learning platform",
   "main": "index.js",
   "scripts": {
