@@ -1,12 +1,12 @@
-import Api from './components/Api.js'
-import Card from './components/Card.js';
-import FormValidator from './components/FormValidator.js';
-import '../pages/index.css';
-import PopupWithImage from './components/PopupWithImage.js';
-import Section from './components/Section.js';
-import UserInfo from './components/UserInfo.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import PopupWithDelete from './components/PopupWithDelete.js';
+import Api from '../scripts/components/Api.js'
+import Card from '../scripts/components/Card.js';
+import FormValidator from '../scripts/components/FormValidator.js';
+import './index.css';
+import PopupWithImage from '../scripts/components/PopupWithImage.js';
+import Section from '../scripts/components/Section.js';
+import UserInfo from '../scripts/components/UserInfo.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
+import PopupWithDelete from '../scripts/components/PopupWithDelete.js';
 import {
   popupButtonElementEditProfile,
   popupButtonElementEditAvatar,
@@ -23,7 +23,7 @@ import {
   popupDeleteSelector,
   profileInfo,
   validationParameters
-} from './utils/constants.js'
+} from '../scripts/utils/constants.js'
 
 
 const api = new Api({

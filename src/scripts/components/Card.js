@@ -1,7 +1,6 @@
 export default class Card {
     constructor(object, selectorTemplate, handleOpenImageFromCard, openDelete, changeLike) {
         //ЭЛЕМЕНТ массива 
-        console.log(object)
         this._object = object;
         this._caption = object.name;
         this._link = object.link;
@@ -52,12 +51,10 @@ export default class Card {
 
     //МЕТОД для отображения кнопки удаления только у своих карточек
     _changeVisibleButtonDelete() {
-        if (this._myId === this._ownerId) {
-            this._deleteElement.style.display = 'block'
-        } else {
-            this._deleteElement.style.display = 'none'
-        };
-    };
+        if (this._myId !== this._ownerId) {
+            this._deleteElement.remove()
+    }
+    }
 
     //МЕТОД для распознования своего лайка в массиве
     _checkLike() {
